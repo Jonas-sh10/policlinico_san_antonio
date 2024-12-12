@@ -1,0 +1,553 @@
+/* --- Estilos para el Header --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(90deg, #282c34, #3a3f47);
+  border-bottom: 1px solid #dee2e6;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo svg {
+  margin-right: 0.5rem;
+}
+
+/* Estilos para la navegación */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Sección de usuario y autenticación */
+.user-actions,
+.auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-link,
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.auth-link:hover,
+.profile-link:hover {
+  color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
+
+.auth-link svg,
+.profile-link svg {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.auth-link span,
+.profile-link span {
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Estilos de responsividad para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .user-actions,
+  .auth-actions {
+    gap: 0.5rem;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+  }
+}
+
+
+/* Login - Register */
+.margin-login-register {
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+
+
+/* Estilos para la barra lateral */
+.sidebar {
+  width: 250px;
+  height: calc(100vh - 60px); /* Ajuste para la altura completa, excluyendo el header */
+  background-color: #2c2f36; /* Color de fondo */
+  position: fixed;
+  top: 60px; /* Alinea la barra lateral debajo del header */
+  left: 0;
+  border-right: 1px solid #333; /* Línea de borde */
+  transition: width 0.3s ease;
+  z-index: 500; /* Asegura que esté en una capa superior */
+}
+
+/* Barra lateral colapsada */
+.sidebar.collapsed {
+  width: 80px; /* Ancho cuando el sidebar está colapsado */
+}
+
+/* Encabezado de la barra lateral */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1e2125; /* Ajusta el color de fondo */
+  border-bottom: 1px solid #333;
+}
+
+/* Estilo para el título del menú */
+.menu-title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-weight: bold;
+  color: #ffffff; /* Color del texto */
+  margin: 15px 0 5px 0;
+}
+
+/* Estilo para el ícono del menú */
+.menu-title svg {
+  font-size: 1.5rem;
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+/* Estilo para el botón de colapsar */
+.toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+/* Ajustes del botón cuando la barra lateral está colapsada */
+.sidebar.collapsed .menu-title {
+  display: none; /* Oculta el texto "Menú" cuando está colapsado */
+}
+
+.sidebar.collapsed .toggle-btn {
+  opacity: 1; /* Mantiene el ícono visible en estado colapsado */
+}
+
+/* Contenedor de la lista */
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Estilos para los ítems de la lista */
+.sidebar-item {
+  padding: 0; /* Elimina el padding del ítem para usar padding en el enlace */
+}
+
+/* Estilos para los enlaces */
+.sidebar-item a {
+  text-decoration: none;
+  color: #ffffff; /* Color del texto */
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  height: 60px; /* Ajusta la altura de los ítems */
+  box-sizing: border-box;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Muestra el texto al lado del ícono cuando no está colapsado */
+.sidebar:not(.collapsed) .sidebar-item a {
+  flex-direction: row; /* Texto al lado del ícono */
+}
+
+.sidebar:not(.collapsed) .sidebar-item a span.full-text {
+  display: inline-block; /* Muestra el texto completo */
+  margin-left: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.sidebar:not(.collapsed) .sidebar-item a span.collapsed-label {
+  display: none; /* Oculta el texto colapsado */
+}
+
+/* Muestra el texto debajo del ícono cuando está colapsado */
+.sidebar.collapsed .sidebar-item a {
+  flex-direction: column; /* Texto debajo del ícono */
+  align-items: center;
+}
+
+.sidebar.collapsed .sidebar-item a span.full-text {
+  display: none; /* Oculta el texto completo */
+}
+
+.sidebar.collapsed .sidebar-item a span.collapsed-label {
+  display: block; /* Muestra el texto breve */
+  margin-top: 5px; /* Espacio entre el ícono y el texto */
+  font-size: 0.75rem; /* Tamaño pequeño para el texto colapsado */
+}
+
+/* Estilos para los ítems de la lista al pasar el ratón */
+.sidebar-item a:hover,
+.sidebar-item a.active {
+  background-color: #3b3f45; /* Color de fondo al pasar el ratón o cuando está activo */
+}
+
+/* Estilos para el contenido de la página */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh; /* Asegura que el contenedor principal ocupe toda la altura de la pantalla */
+}
+
+.dashboard-content {
+  padding: 5px;
+  padding-top: 70px; /* Espacio extra para el header */
+  flex: 1;
+  background-color: #f0f2f5; /* Fondo claro para contraste con la barra lateral */
+  transition: margin-left 0.3s ease; /* Transición suave para el ajuste del margen */
+}
+
+/* Ajustes para el contenido al expandir o colapsar la barra lateral */
+.dashboard-content.expanded {
+  margin-left: 250px; /* Ajusta según el ancho completo de la barra lateral */
+}
+
+.dashboard-content.collapsed {
+  margin-left: 80px; /* Ajusta según el ancho colapsado de la barra lateral */
+}
+
+
+
+/* Estilos heading */
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.heading p {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+  color: #828282;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del footer */
+/* General Footer Styling */
+.footer {
+  background: linear-gradient(90deg, #282c34, #3a3f47);
+  color: #f0f0f0;
+  padding: 10px 0; /* Aumenta el padding para mejorar el espaciado */
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 20px; /* Agrega un poco de padding lateral */
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 150px; /* Ajusta el tamaño mínimo para mejor adaptabilidad */
+  margin: 10px; /* Aumenta el margen para separar secciones */
+}
+
+.section-title {
+  font-size: 1.2rem; /* Disminuye el tamaño del título */
+  margin-bottom: 8px; /* Ajusta el margen inferior */
+  text-align: center;
+}
+
+.contact-info {
+  margin: 8px 0; /* Ajusta el margen para mejor separación */
+  font-size: 0.9rem; /* Disminuye el tamaño de la fuente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin-right: 10px; /* Ajusta el margen derecho */
+}
+
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Asegúrate de que no haya margen por defecto */
+}
+
+.link {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.9rem; /* Disminuye el tamaño de la fuente */
+  display: block;
+  margin: 8px 0; /* Ajusta el margen para mejor separación */
+  text-align: center;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+  margin: 10px 0; /* Ajusta el margen superior e inferior */
+}
+
+.social-link {
+  margin: 0 10px; /* Ajusta el margen lateral */
+  color: #f0f0f0;
+}
+
+.social-icon {
+  font-size: 1.3rem; /* Disminuye el tamaño del ícono */
+}
+
+.footer-bottom {
+  margin-top: 20px;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.8rem; /* Disminuye el tamaño de la fuente */
+}
+
+
+/* Home */
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f7f8; /* Fondo claro para toda la página */
+}
+
+/* Main Content Styles */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* Fondo blanco para tarjetas */
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card {
+  background-color: #ffffff; /* Fondo blanco para tarjetas de servicio */
+  border: 1px solid #e0e0e0; /* Borde gris claro */
+  transition: background-color 0.3s ease;
+}
+
+.service-card:hover {
+  background-color: #e9f5ff; /* Fondo azul claro al pasar el ratón */
+}
+
+.service-icon {
+  font-size: 3.5rem; /* Tamaño más grande para íconos de servicios */
+  color: #007bff; /* Color principal de los íconos */
+  margin-bottom: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.service-icon:hover {
+  color: #0056b3; /* Color al pasar el ratón sobre el ícono */
+  transform: scale(1.1); /* Escala ligeramente el ícono al pasar el ratón */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Testimonials Styles */
+.testimonials {
+  background-color: #ffffff; /* Fondo blanco para testimonios */
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.testimonial-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.testimonial-card p {
+  font-style: italic;
+  color: #333;
+}
+
+.cta {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+}
+
+.cta a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cta a:hover {
+  color: #e2e6ea; /* Color de texto en el botón CTA al pasar el ratón */
+}
+
+.news {
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.news-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.news-summary {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Carousel Styles */
+.carousel {
+  margin-top: 30px;
+}
+
+.carousel-inner img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(1); /* Ajuste de color para los controles del carrusel */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+/* Home Page Icon Styles */
+.home-icon {
+  font-size: 3.5rem; /* Tamaño grande para íconos en la página de inicio */
+  color: #007bff; /* Color principal de los íconos de la página Home */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.home-icon:hover {
+  color: #0056b3; /* Color al pasar el ratón sobre el ícono en la página de inicio */
+  transform: scale(1.1); /* Escala ligeramente el ícono al pasar el ratón */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #343a40; /* Fondo oscuro para el pie de página */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-icon {
+  font-size: 2.5rem; /* Tamaño de íconos en el pie de página */
+  color: #fff; /* Color de los íconos en el pie de página */
+  margin: 0 15px; /* Espaciado entre íconos */
+  transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #ccc; /* Color al pasar el ratón sobre el ícono en el pie de página */
+}
+
+
